@@ -1,0 +1,21 @@
+body, button, #camera-selector, #status, .values, #likeness-div, #changes-button {
+    font-family: Calibri, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+button, #camera-selector, #changes-button {
+    cursor: pointer;
+}
+
+body {
+    background-color: #000000;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+}

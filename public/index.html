@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BarScanner</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+</head>
+<body>
+    <div id="selector">
+        <select id="camera-selector"></select>
+    </div>
+    <div class="preview-button-div">
+        <div class="preview">
+            <div id="reader"></div>
+        </div>
+        <button id="reset-button">Scansiona</button>
+        <div class="cam-likeness-div">
+            <p id="cam-likeness-display">100</p>
+            <p id="cam-comment"></p>
+        </div>
+    </div>
+
+    <div class="values-div disappear">
+        <div id="likeness-div">
+            <p id="likeness-value"></p>
+            <div id="likeness-bar"></div>
+        </div>
+        <p class="values" id="product-data"></p>
+        <p class="values" id="insertion-date"></p>
+    </div>
+
+    <div class="changes-button-div disappear">
+        <button id="changes-button"></button>
+    </div>
+</body>
+</html>
