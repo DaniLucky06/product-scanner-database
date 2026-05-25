@@ -75,25 +75,41 @@ function startScanning(id) {
 
 function resetScanner() {
     const previewContainer = document.querySelector('.preview');
+    const previewButtonDiv = document.querySelector('.preview-button-div');
 
+    document.getElementById('cam-likeness-display').innerText = "";
+    document.getElementById('cam-comment').innerText = "";
     previewContainer.style.filter = "";
     previewContainer.style.opacity = "";
     document.body.style.backgroundColor = "black";
     document.querySelectorAll('.disappear').forEach((element) => {element.style.opacity = "0"});
-    document.querySelector(".preview-button-div").style.backgroundColor = "#212121";
+    previewButtonDiv.style.backgroundColor = "#212121";
 
-    if (html5QrCode.getState() === Html5QrcodeScannerState.PAUSED) {
-        html5QrCode.resume();
+    previewButtonDiv.style.height = "";
+
+    if (html5QrCode.getState() === Html5QrcodeScannerState.NOT_STARTED) {
+        startScanning(cameraId);
     }
 }
 
 async function onScanSuccess(decodedText, decodedResult) {
     const previewContainer = document.querySelector('.preview');
+    const previewButtonDiv = document.querySelector('.preview-button-div');
     lastScannedBarcode = decodedText;
+
+    const currentActualHeight = previewButtonDiv.offsetHeight;
+    previewButtonDiv.style.height = `${currentActualHeight}px`;
+
+    try {
+        if (html5QrCode.getState() === Html5QrcodeScannerState.SCANNING) {
+            await html5QrCode.stop();
+        }
+    } catch (stopError) {
+        console.error('Failed to stop camera hardware:', stopError);
+    }
 
     // When a barcode is successfully found
     document.getElementById('cam-likeness-display').innerText = ``;
-    await html5QrCode.pause(true);
     previewContainer.style.filter = "grayscale(100%)";
     previewContainer.style.opacity = "0";
 

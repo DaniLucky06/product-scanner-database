@@ -48,3 +48,14 @@ app.post('/api/products', (req, res) => {
         res.json({success: true});
     });
 });
+
+app.post('/api/products/remove', (req, res) => {
+    const {barcode} = req.body;
+
+    const query = `DELETE FROM products WHERE barcode=?`;
+
+    db.run(query, [barcode], (err) => {
+        if (err) return res.status(500).json({error: err.message});
+        res.json({success: true});
+    });
+})

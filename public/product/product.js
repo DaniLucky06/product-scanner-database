@@ -35,6 +35,10 @@ async function loadProduct() {
             document.getElementById('brand-input').value = data.brand;
             document.getElementById('name-input').value = data.name;
             document.getElementById('comment-input').value = data.comment || "";
+            const remove_button = document.getElementById('remove-button');
+            remove_button.disabled = false;
+            remove_button.style.opacity = '1';
+            remove_button.style.display = 'block';
             likenessInput.value = data.likeness;
 
             likenessInput.dispatchEvent(new Event('input'));
@@ -91,6 +95,32 @@ document.getElementById('save-button').addEventListener('click', async () => {
 });
 
 document.getElementById('cancel-button').addEventListener('click', () => {
+    window.location.href = "/";
+});
+
+document.getElementById('remove-button').addEventListener('click', async () => {
+    if (!confirm("Cancellare?")) return;
+
+    const payload = {barcode: barcode};
+
+    try {
+        const response = await fetch('/api/products/remove', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+
+        if (result.success) {
+            document.getElementById('remove-button').innerText = "Rimosso!";
+
+            await delay(1000);
+            window.location.href = "/";
+        }
+    } catch (error) {
+        console.error("Errore durante la rimozione:", error);
+    }
+
     window.location.href = "/";
 });
 
