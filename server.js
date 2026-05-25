@@ -1,13 +1,16 @@
 const express = require('express');
+const morgan = require('morgan');
 const {Database} = require('sqlite3');
 const path = require('path');
 const sqlite = require("node:sqlite");
 const app = express();
 
+app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.static('public'));
 
-app.listen(3000, () => console.log('Scanner running on http://localhost:3000'));
+const port = 3000;
+app.listen(port, () => console.log(`Scanner running on http://localhost:${port}`));
 
 const db = new Database('./products.db', (err) => {
     if (err) {

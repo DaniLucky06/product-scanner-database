@@ -9,6 +9,7 @@
   "private": true,
   "dependencies": {
     "express": "^5.2.1",
+    "morgan": "^1.10.1",
     "sqlite3": "^6.0.1"
   }
 }
