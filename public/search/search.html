@@ -8,20 +8,31 @@
     <script src="search.js" defer></script>
 </head>
 <body>
-<div class="product-container">
-    <h1 id="form-title">Caricamento...</h1>
+<div class="container">
+    <h1 id="form-title">Ricerca prodotto</h1>
     <p id="barcode-display"></p>
 
     <div class="form-group">
-        <label for="search-input">Ricerca</label>
-        <input type="text" id="search-input">
+        <label for="name-search">Nome</label>
+        <input type="text" id="name-search">
     </div>
 
-    <button id="search-button">Salva</button>
+    <button id="search-button">Cerca</button>
     <button id="return-button">Annulla</button>
-
-    <div class="search-results">
-
+</div>
+<div class="pagination-container">
+    <button id="prev-button">Precedenti</button>
+    <button id="next-button">Successivi</button>
+</div>
+<div class="search-results container">
+    <div class="legend">
+        <button class="legend-p">Nome</button>
+        <div class="vertical-line"></div>
+        <button class="legend-p">Marca</button>
+        <div class="vertical-line"></div>
+        <button class="legend-p rating">Rating</button>
+        <div class="vertical-line"></div>
+        <button class="legend-p data">Data</button>
     </div>
 </div>
 </body>

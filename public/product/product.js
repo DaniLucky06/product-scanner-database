@@ -87,7 +87,11 @@ document.getElementById('save-button').addEventListener('click', async () => {
             document.getElementById('save-button').innerText = "Salvato!";
 
             await delay(1000);
-            window.location.href = "/";
+            if (document.referrer) {
+                window.history.back();
+            } else {
+                window.location.href = "/";
+            }
         }
     } catch (error) {
         console.error("Errore durante il salvataggio:", error);
@@ -95,7 +99,11 @@ document.getElementById('save-button').addEventListener('click', async () => {
 });
 
 document.getElementById('cancel-button').addEventListener('click', () => {
-    window.location.href = "/";
+    if (document.referrer) {
+        window.history.back();
+    } else {
+        window.location.href = "/";
+    }
 });
 
 document.getElementById('remove-button').addEventListener('click', async () => {
@@ -121,7 +129,11 @@ document.getElementById('remove-button').addEventListener('click', async () => {
         console.error("Errore durante la rimozione:", error);
     }
 
-    window.location.href = "/";
+    if (document.referrer) {
+        window.history.back();
+    } else {
+        window.location.href = "/";
+    }
 });
 
 loadProduct();

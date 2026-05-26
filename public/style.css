@@ -149,3 +149,16 @@
 
     background-color: #dddddd;
 }
+
+#search-button {
+    padding: 10px 20px;
+    font-size: 60px;
+    color: #000;
+
+    background-color: #dddddd;
+}
+
+.disappear {
+    display: none;
+    opacity: 0;
+}

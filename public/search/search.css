@@ -1,10 +1,16 @@
-.product-container {
+.vertical-line {
+    align-self: stretch;
+    border-left: 2px solid #323232;
+    margin: 0 5px;
+}
+
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 80%;
-    margin: 40px auto;
+    margin: 20px auto;
     padding: 30px;
     box-sizing: border-box;
 
@@ -67,4 +73,134 @@
 
 #return-button {
     background-color: #7b2828;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    border: 1px solid #626262;
+    border-radius: 20px;
+
+    padding: 10px;
+}
+
+.search-element {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5px 0;
+
+    border: 1px solid #8c8c8c;
+    border-radius: 20px;
+
+    background-color: #720000;
+}
+
+.search-element:hover {
+    filter: brightness(1.1);
+    transform: scale(1.01);
+}
+
+.search-element:active {
+    transform: scale(0.99);
+}
+
+.search-element-p {
+    margin: 0;
+    padding: 15px 10px;
+    flex: 1;
+
+    color: #fff;
+    font-size: 30px;
+    overflow: hidden;
+}
+
+.legend {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+
+    border: 1px solid #8c8c8c;
+    border-radius: 20px;
+
+    background-color: #4d4d4d;
+    overflow: hidden;
+}
+
+.legend-p {
+    margin: 0;
+    padding: 15px 10px;
+    flex: 1;
+
+    color: #fff;
+    font-size: 40px;
+    overflow: hidden;
+
+    background: none;
+    border: none;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.1s ease;
+}
+
+.legend-p:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.legend-p:active {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.rating {
+    flex-grow: 0.5;
+}
+
+.data {
+    flex-grow: 0.7;
+}
+
+.pagination-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+#prev-button, #next-button {
+    display: none;
+    flex: 1;
+    max-width: 300px;
+    padding: 15px 0;
+    font-size: 30px;
+    color: #fff;
+    background-color: #323232;
+    border: 1px solid #626262;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.1s ease;
+}
+
+#prev-button:hover, #next-button:hover {
+    background-color: #4d4d4d;
+}
+
+#prev-button:active, #next-button:active {
+    background-color: #212121;
 }

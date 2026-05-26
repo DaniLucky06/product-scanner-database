@@ -9,6 +9,8 @@ reset_button.addEventListener('click', resetScanner);
 const changes_button = document.getElementById('changes-button');
 changes_button.addEventListener('click', productSwitch);
 
+document.getElementById('search-button').addEventListener('click', searchLink);
+
 // This method will trigger user permissions
 Html5Qrcode.getCameras().then(devices => {
     /**
@@ -82,7 +84,7 @@ function resetScanner() {
     previewContainer.style.filter = "";
     previewContainer.style.opacity = "";
     document.body.style.backgroundColor = "black";
-    document.querySelectorAll('.disappear').forEach((element) => {element.style.opacity = "0"});
+    document.querySelectorAll('.disappear').forEach((element) => {element.style.opacity = "0"; element.style.display = "none"});
     previewButtonDiv.style.backgroundColor = "#212121";
 
     previewButtonDiv.style.height = "";
@@ -126,7 +128,7 @@ async function onScanSuccess(decodedText, decodedResult) {
             const saturation = Math.abs(likeness - 0.5) * 2 * 100;
 
 
-            document.querySelectorAll('.disappear').forEach((element) => {element.style.opacity = "1"});
+            document.querySelectorAll('.disappear').forEach((element) => {element.style.opacity = "1"; element.style.display = "block"});
             document.getElementById('likeness-value').innerText = likenessPercent + "%";
             document.getElementById('product-data').innerText = data.name + " | " + data.brand;
             document.getElementById('insertion-date').innerText = data.date_added;
@@ -158,5 +160,9 @@ async function onScanSuccess(decodedText, decodedResult) {
 function productSwitch() {
     if (!lastScannedBarcode) return;
 
-    window.location.href = `/product/product.html?barcode=${lastScannedBarcode}`
+    window.location.href = `/product/product.html?barcode=${lastScannedBarcode}`;
+}
+
+function searchLink() {
+    window.location.href = '/search/search.html'
 }
