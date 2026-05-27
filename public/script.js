@@ -149,6 +149,7 @@ async function onScanSuccess(decodedText, decodedResult) {
         } else {
             document.getElementById('cam-likeness-display').innerText = `Non salvato`;
             document.querySelector(".changes-button-div").style.opacity = "1";
+            document.querySelector(".changes-button-div").style.display = "block";
             changes_button.innerText = "Inserisci prodotto"
         }
     } catch (error) {
